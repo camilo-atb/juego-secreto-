@@ -1,18 +1,7 @@
-// Tíutlo
-// let titulo = document.querySelector("h1"); // el parametro que recibe el metodo "querySelector", es el selector que vamos a usar
-// importante, titulo es un objeto, no un texto; pero, con este objeto podemos hacer diferentes cosas, entre ellas, colocar un texto
-
-// titulo.innerHTML = "Juego del número secreto"; // con innerHTML se asigna el texto
-
-// Parrafo
-
-// let parrafo = document.querySelector("p");
-
-// parrafo.innerHTML = "Indica un número del 1 al 10";
 
 // Función 
 let intentos = 0;
-let numeroSecreto = 0; // ambito de la variable, en este caso es de alcanza global, la de la funcion es de alcance de bloque // llamamos la función en la variable
+let numeroSecreto = 0; 
 
 let listaNumerosSorteados = [];
 let numeroMaximo = 10;
@@ -23,9 +12,9 @@ function asignarTextoElemento(etiqueta, texto){
     elementoHTML.innerHTML = texto;
     return;
 }
-// tomtamos el valor que se obtiene de la etiqueta input, aunque por medio del ID:
-function verificarIntento(){ // declaramos cuando colocamos function; de preferencia, las funciones deben realizar una acción
-    let numeroUsuario = parseInt(document.getElementById("valorUsuario").value); // el input es una etiqueta que representa a la caja de texto; pero en este caso seleccionaremos por id, por eso ya no usamos querySelector. que sucede?, que este elementById tambien nos devuelve el objeto, y lo que queremos es el valor, por eso accedemos a uno de sus atributos que es el value 
+
+// tomamos el valor que se obtiene de la etiqueta input, aunque por medio del ID:
+function verificarIntento(){ 
     console.log("Intento " + intentos);
     if(numeroUsuario === numeroSecreto){
         asignarTextoElemento("p", `Acertaste el número en ${intentos} ${(intentos == 1) ? "intento" : "intentos"}`);
@@ -49,10 +38,8 @@ function generarNumeroSecreto() {
     //let numeroSecreto = Math.floor(Math.random()*10) + 1; // +1 para ir de 1 a 10
     let numeroGenerado = Math.floor(Math.random()*10) + 1;
     //console.log(numeroGenerado)
-    // si el número generado esta incluido en la lista hacemos una operación, sino, hacemos otra
     
     // si ya sorteamos todos los números:
-
     if (listaNumerosSorteados.length == numeroMaximo){
         asignarTextoElemento("p", "Ya se sortearon todos los números posibles");
     }else{
@@ -66,8 +53,6 @@ function generarNumeroSecreto() {
 }
 
 function limpiarCaja(){
-    // let valorCaja = document.querySelector("#valorUsuario"); // de esta manera se usa el querySelector pero con id (el id de nuestro input)
-    // valorCaja.value = ""; // para que quede vacío una vez coloca un valor que no es correcto; recordemos que valorCaja es un objeto, y necesitamos acceder a sus atributos para obtener o modificar el valor
 
     // Las dos líneas de atras se pueden remplazar por lo siguiente: 
     document.querySelector("#valorUsuario").value = "";
